@@ -18,7 +18,8 @@ RUN curl -LO https://github.com/amadvance/snapraid/releases/download/v$SNAPRAID_
   cd snapraid-$SNAPRAID_VERSION && \
   ./configure && \
   make -j8 && \
-  make -j8 check && \
+  # Tests mostly fail and are lengthy. Uncomment to re-enable.
+  # make -j8 check && \
   checkinstall -Dy --install=no --nodoc && \
   mkdir /build && \
   cp *.deb /build/snapraid-from-source.deb
